@@ -12,10 +12,16 @@ import AFNetworking
 class PhotosViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    
     var photos = [NSDictionary]()
+    let refreshControl = UIRefreshControl()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        refreshControl.addTarget(self, action: #selector(PhotosViewController.fetchPhotos), for: UIControlEvents.valueChanged)
+        tableView.addSubview(refreshControl)
+        
         fetchPhotos()
         tableView.delegate = self
         tableView.dataSource = self
@@ -43,6 +49,7 @@ class PhotosViewController: UIViewController {
                             if let photoData = responseData["posts"] as? [NSDictionary] {
                                 self.photos = photoData
                                 self.tableView.reloadData()
+                                self.refreshControl.endRefreshing()
                             }
                         }
                     }
