@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import AFNetworking
 
 class PhotosViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var photos: [NSDictionary]?
+    var photos = [NSDictionary]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +39,8 @@ class PhotosViewController: UIViewController {
                     if let data = dataOrNil {
                         if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
                             print("response: \(responseDictionary)")
-                            if let photoData = responseDictionary["data"] as? [NSDictionary] {
+                            guard let responseData = responseDictionary["response"] as? NSDictionary else { return }
+                            if let photoData = responseData["posts"] as? [NSDictionary] {
                                 self.photos = photoData
                                 self.tableView.reloadData()
                             }
@@ -64,14 +66,27 @@ class PhotosViewController: UIViewController {
 
 extension PhotosViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return photos.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoCell") as? PhotoCell {
+            let postData = photos[indexPath.section]
+            if let urlData = postData["photos"] as? [NSDictionary] {
+                if let originalSize = urlData.first?["original_size"] as? NSDictionary {
+                    if let urlString = originalSize["url"] as? String {
+                        let url = URL(string: urlString)!
+                        cell.photoImageView.setImageWith(url)
+                    }
+                }
+            }
+
+            return cell
+        }
         return UITableViewCell()
     }
 }
