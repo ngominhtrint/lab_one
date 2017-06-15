@@ -103,7 +103,40 @@ extension PhotosViewController: UITableViewDataSource {
 extension PhotosViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        headerView.backgroundColor = UIColor(white: 1, alpha: 0.9)
+        
+        let profileView = UIImageView(frame: CGRect(x: 10, y: 10, width: 30, height: 30))
+        profileView.clipsToBounds = true
+        profileView.layer.cornerRadius = 15
+        profileView.layer.borderColor = UIColor(white: 0.7, alpha: 0.8).cgColor
+        profileView.layer.borderWidth = 1
+        
+        let label = UILabel(frame: CGRect(x: 50, y: 10, width: 260, height: 30))
+        
+        let postData = photos[section]
+        if let urlData = postData["photos"] as? [NSDictionary] {
+            if let originalSize = urlData.first?["original_size"] as? NSDictionary {
+                if let urlString = originalSize["url"] as? String {
+                    let url = URL(string: urlString)!
+                    profileView.setImageWith(url)
+                }
+            }
+        }
+        
+        if let slug = postData["slug"] as? String {
+            label.text = slug
+        }
+        
+        headerView.addSubview(profileView)
+        headerView.addSubview(label)
+        headerView.backgroundColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.7)
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 24
     }
     
 }
