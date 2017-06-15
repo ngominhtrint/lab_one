@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		AD4E311E19595F6CB8B10276 /* Pods_LabOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF9BF1ABA75186967690C2B8 /* Pods_LabOne.framework */; };
 		EB47BAB31EF25E33002CA78B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB47BAB21EF25E33002CA78B /* AppDelegate.swift */; };
-		EB47BAB51EF25E33002CA78B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB47BAB41EF25E33002CA78B /* ViewController.swift */; };
 		EB47BAB81EF25E33002CA78B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB47BAB61EF25E33002CA78B /* Main.storyboard */; };
 		EB47BABA1EF25E33002CA78B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB47BAB91EF25E33002CA78B /* Assets.xcassets */; };
 		EB47BABD1EF25E33002CA78B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB47BABB1EF25E33002CA78B /* LaunchScreen.storyboard */; };
+		EB47BAC51EF25F99002CA78B /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB47BAC41EF25F99002CA78B /* PhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +21,11 @@
 		DF9BF1ABA75186967690C2B8 /* Pods_LabOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LabOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB47BAAF1EF25E33002CA78B /* LabOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LabOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB47BAB21EF25E33002CA78B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EB47BAB41EF25E33002CA78B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EB47BAB71EF25E33002CA78B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB47BAB91EF25E33002CA78B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB47BABC1EF25E33002CA78B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB47BABE1EF25E33002CA78B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB47BAC41EF25F99002CA78B /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,11 +79,11 @@
 			isa = PBXGroup;
 			children = (
 				EB47BAB21EF25E33002CA78B /* AppDelegate.swift */,
-				EB47BAB41EF25E33002CA78B /* ViewController.swift */,
 				EB47BAB61EF25E33002CA78B /* Main.storyboard */,
 				EB47BAB91EF25E33002CA78B /* Assets.xcassets */,
 				EB47BABB1EF25E33002CA78B /* LaunchScreen.storyboard */,
 				EB47BABE1EF25E33002CA78B /* Info.plist */,
+				EB47BAC41EF25F99002CA78B /* PhotosViewController.swift */,
 			);
 			path = LabOne;
 			sourceTree = "<group>";
@@ -211,8 +211,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB47BAB51EF25E33002CA78B /* ViewController.swift in Sources */,
 				EB47BAB31EF25E33002CA78B /* AppDelegate.swift in Sources */,
+				EB47BAC51EF25F99002CA78B /* PhotosViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
